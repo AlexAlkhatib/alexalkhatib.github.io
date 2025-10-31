@@ -1273,3 +1273,44 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Skills Section Logo
+--------------------------------------------------------------*/
+#skills .section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Titre à gauche, logo à droite */
+  gap: 20px;
+  flex-wrap: wrap; /* Pour le responsive */
+}
+
+#skills .section-title h2 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: left;
+}
+
+#skills .skills-logo {
+  width: 80px; /* Taille du logo */
+  height: auto;
+  transition: transform 0.4s ease-in-out;
+}
+
+#skills .skills-logo:hover {
+  transform: scale(1.1);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  #skills .section-title {
+    flex-direction: column;
+    align-items: flex-start; /* Garde le texte à gauche */
+  }
+
+  #skills .skills-logo {
+    margin-top: 5px;
+    margin-bottom: -50px;
+    align-self: center; /* Centre le logo sous le texte */
+  }
+}
