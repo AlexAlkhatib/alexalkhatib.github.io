@@ -1275,7 +1275,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Skills Section Logo
+# Skills Section
 --------------------------------------------------------------*/
 #skills .section-title {
   display: flex;
@@ -1313,4 +1313,16 @@ section,
     margin-bottom: -50px;
     align-self: center; /* Centre le logo sous le texte */
   }
+}
+
+/*--------------------------------------------------------------
+# Hobbies Section
+--------------------------------------------------------------*/
+.hobby-item img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
