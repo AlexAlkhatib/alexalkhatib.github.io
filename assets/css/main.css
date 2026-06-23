@@ -1330,3 +1330,18 @@ section,
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+/*--------------------------------------------------------------
+# Languages Section
+--------------------------------------------------------------*/
+.language-switch {
+  margin-top: 7px;
+  margin-bottom: 15px;
+}
+
+.language-switch a {
+  margin: 3px;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+}
