@@ -1331,6 +1331,54 @@ section,
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.chess-challenge {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.chess-challenge span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+}
+
+.chess-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  background: #81B64C;
+  color: #fff !important;     
+  text-decoration: none;
+  border-radius: 8px;
+
+  font-weight: 700;
+
+  transition: all .25s ease;
+}
+
+.chess-btn:hover {
+  background: #6da33f;
+  color: #fff !important;      
+  transform: translateY(-2px);
+}
+
+.chess-btn span {
+  color: #fff !important;      
+  font-weight: 700;
+}
+
+.chess-icon {
+  width: 24px;
+  height: 24px;
+}
+
 /*--------------------------------------------------------------
 # Languages Section
 --------------------------------------------------------------*/
