@@ -1145,6 +1145,13 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
+.contact-message {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
 /*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
