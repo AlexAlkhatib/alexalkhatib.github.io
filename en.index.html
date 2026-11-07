@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="color-scheme" content="light dark">
   <title>Alex Alkhatib • Portfolio</title>
-  <style>
-    .portfolio-content img {
-      height: 250px; 
-      object-fit: cover; 
-    }
-  </style>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="Portfolio of Alex Alkhatib, computer engineer specialized in artificial intelligence: skills, projects, certifications and professional background." name="description">
+  <meta content="Alex Alkhatib, computer engineer, artificial intelligence, machine learning, fullstack developer, Java, Python, React, portfolio" name="keywords">
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -23,31 +18,39 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Theme: applied before painting to avoid a light flash -->
+  <script src="assets/js/theme.js"></script>
+  <noscript>
+    <style>#preloader { display: none; }</style>
+  </noscript>
 </head>
 <body class="index-page">
   <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <button type="button" class="header-toggle d-xl-none" aria-controls="header" aria-expanded="false" aria-label="Open the navigation menu">
+      <i class="bi bi-list" aria-hidden="true"></i>
+    </button>
     <div class="profile-img">
-      <img src="assets/img/pictures/profile-picture.webp" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/pictures/profile-picture.webp" alt="Alex Alkhatib" class="img-fluid rounded-circle">
     </div>
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
       <h1 class="sitename">Alex Alkhatib</h1>
     </a>
-    <!-- Language Switch -->
-    <div class="language-switch text-center">
-      <a href="index.html" class="btn btn-sm btn-outline-light">FR</a>
-      <a href="en.index.html" class="btn btn-sm btn-outline-light">EN</a>
+    <!-- Language switch + theme toggle -->
+    <div class="header-toolbar">
+      <div class="language-switch">
+        <a href="index.html" class="btn btn-sm btn-outline-light">FR</a>
+        <a href="en.index.html" class="btn btn-sm btn-outline-light" aria-current="page">EN</a>
+      </div>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Turn on dark mode" title="Turn on dark mode">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+      </button>
     </div>
     <div class="social-links text-center">
-      <a href="https://github.com/AlexAlkhatib" target="_blank" class="github"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com/in/alex-alkhatib-info/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      <a href="https://www.youtube.com/@alexalkhatib" target="_blank" class="youtube"><i class="bi bi-youtube"></i></a>
+      <a href="https://github.com/AlexAlkhatib" target="_blank" rel="noopener noreferrer" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/alex-alkhatib-info/" target="_blank" rel="noopener noreferrer" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.youtube.com/@alexalkhatib" target="_blank" rel="noopener noreferrer" class="youtube" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
     </div>
     <nav id="navmenu" class="navmenu">
       <ul>
@@ -65,27 +68,25 @@
   <main class="main">
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
-      <img src="assets/img/pictures/hero-bg.webp" alt="" data-aos="fade-in" class="">
+      <img src="assets/img/pictures/hero-bg.webp" alt="" data-aos="fade-in">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Alex Alkhatib</h2>
-        <p><span class="typed" data-typed-items="Software Engineer, AI Engineer"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <p><span class="typed" data-typed-items="Software Engineer, AI Engineer"></span></p>
       </div>
     </section>
     <!-- /Hero Section -->
     <!-- About Section -->
     <section id="about" class="about section">
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>ABOUT</h2>
-        <p>Computer Engineer specialized in Artificial Intelligence, with dual expertise in software development and intelligent systems design.</p> 
+        <p>Computer Engineer specialized in Artificial Intelligence, with dual expertise in software development and intelligent systems design.</p>
         <p>Passionate about innovation and solving complex problems, I design and develop complete solutions, from idea to production.</p>
         <p>Always ready to take on new challenges, I put my skills at the service of your projects.</p>
       </div>
-      <!-- End Section Title -->
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/pictures/my-profile-img.webp" class="img-fluid" alt="">
+            <img src="assets/img/pictures/my-profile-img.webp" class="img-fluid" alt="Alex Alkhatib" loading="lazy">
           </div>
           <div class="col-lg-8 content">
             <h2>COMPUTER ENGINEER</h2>
@@ -109,7 +110,7 @@
                 I strive to provide high-quality technological solutions tailored to the specific needs of each project.
             </p>
             <div class="signature text-center text-lg-start">
-              <img src="./assets/img/signature.png" alt="Signature d'Alex Alkhatib" class="img-fluid" style="max-width: 250px; height: auto;">
+              <img src="./assets/img/signature.png" alt="Signature d'Alex Alkhatib" class="img-fluid signature-img">
             </div>
           </div>
         </div>
@@ -118,14 +119,12 @@
     <!-- /About Section -->
     <!-- Skills Section -->
     <section id="skills" class="skills section light-background">
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>SKILLS</h2>
         <img src="./assets/img/coding-sticker.webp" alt="Logo compétences" class="skills-logo">
       </div>
-      <!-- End Section Title -->
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row skills-content skills-animation">
+        <div class="row skills-content">
           <div class="skills-grid" data-aos="fade-up" data-aos-delay="100">
             <!-- 1. Web Development -->
             <article class="skill-card">
@@ -293,7 +292,6 @@
     <!-- End Skills Section -->
     <!-- Resume Section -->
     <section id="resume" class="resume section">
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>RESUME</h2>
         <p>
@@ -585,12 +583,10 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section light-background">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>PROJECTS</h2>
         <p>I invite you to explore my projects and discover my achievements.</p>
-      </div><!-- End Section Title -->
-
+      </div>
       <div class="container">
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
@@ -612,12 +608,11 @@
             <li data-filter=".filter-generative">Generative AI</li>
             <li data-filter=".filter-devops">DevOps</li>
           </ul>
-          <!-- End Portfolio Filters -->
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-frontend">
-              <a href="https://github.com/AlexAlkhatib/html-css-js" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/html-css-js" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/html-css-js.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/html-css-js.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🌐 Frontend Web Development : HTML - CSS - JS</h4>
                     <p>A collection of Front-End projects showcasing my proficiency in HTML, CSS, Bootstrap, and JavaScript through modern, responsive, and interactive user interfaces.</p>
@@ -625,11 +620,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-frontend">
-              <a href="https://github.com/AlexAlkhatib/react-js-projects" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/react-js-projects" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/react.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/react.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>⚛️ Frontend Web Development : ReactJS</h4>
                     <p>Developed modern frontend applications with React, implementing reusable components, state management, dynamic rendering, and API integration to create high-performance and interactive user experiences.</p>
@@ -637,11 +631,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-backend">
-              <a href="https://github.com/AlexAlkhatib/node-js-projects" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/node-js-projects" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/node-js.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/node-js.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🟩 Backend Web Development : NodeJS</h4>
                     <p>Built and deployed backend and full-stack applications with Node.js, featuring custom routing, API management, dynamic content generation, and client-server interactions without frameworks.</p>
@@ -649,11 +642,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-backend">
-              <a href="https://github.com/AlexAlkhatib/express-js-projects" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/express-js-projects" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/express-js.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/express-js.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🟩 Backend Web Development : ExpressJS</h4>
                     <p>Designed and developed robust backend applications with Express.js, incorporating modular REST APIs, secure session management, user authentication, and seamless frontend-server communication.</p>
@@ -661,11 +653,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-test">
-              <a href="https://github.com/AlexAlkhatib/web-application-testing" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/web-application-testing" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/web-application-testing.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/web-application-testing.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🧪 Web Application Testing</h4>
                     <p>Implemented automated testing for JavaScript and React applications using Jest and Vitest to ensure code quality, reliability, and maintainability.</p>
@@ -673,11 +664,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-test">
-              <a href="https://github.com/AlexAlkhatib/java-application-testing" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/java-application-testing" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/java-application-testing.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/java-application-testing.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>☕ Java Application Testing</h4>
                     <p>Implemented unit testing in Java with JUnit 5 and Mockito 3 to validate business logic, mock dependencies, and ensure code quality and reliability.</p>
@@ -685,11 +675,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-databases">
-              <a href="https://github.com/AlexAlkhatib/cars-database-management" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/cars-database-management" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/cars.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/cars.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🚗 Cars Database Management</h4>
                     <p>Designed and managed a complete relational database to analyze, organize, and connect vehicles, dealerships, staff, and sales through advanced SQL queries.</p>
@@ -697,11 +686,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-databases">
-              <a href="https://github.com/AlexAlkhatib/clinical-database-normalization" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/clinical-database-normalization" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/clinique.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/clinique.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🏥 Clinical Database Normalization</h4>
                     <p>Normalized a clinical database by applying normal forms (1NF → BCNF) to improve data consistency, quality, and the overall relational structure of the system.</p>
@@ -709,11 +697,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-databases">
-              <a href="https://github.com/AlexAlkhatib/company_database_modeling" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/company_database_modeling" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/office.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/office.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🏢 Company Database Modeling</h4>
                     <p>Modeled an enterprise database with PowerDesigner, including conceptual, logical, and physical design, as well as automatic MySQL script generation.</p>
@@ -721,11 +708,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-php">
-              <a href="https://lesellier.ludovicea.org/Lesellier/" target="_blank">
+              <a href="https://lesellier.ludovicea.org/Lesellier/" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/lesellier.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/lesellier.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🗃️ Base Lesellier</h4>
                     <p>Digitized, corrected, and published the Lesellier file, a unique historical archive on French clerics in Rome during the 15th century, while ensuring data integrity and quality.</p>
@@ -733,11 +719,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-all">
-              <a href="https://sites.google.com/view/mconseilboucherie" target="_blank">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-frontend">
+              <a href="https://sites.google.com/view/mconseilboucherie" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/monconseil.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/monconseil.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🥩 M’Conseil Boucherie</h4>
                     <p>Designed and developed a professional business website for a local butcher shop, enhancing its online presence and facilitating customer communication.</p>
@@ -745,11 +730,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-python">
-              <a href="https://github.com/AlexAlkhatib/alecsync-social-platform" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/alecsync-social-platform" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/alecsync.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/alecsync.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>💬 AlecSync</h4>
                     <p>Developed an interactive social platform that enabled users to share content, connect with others, and follow their friends’ activities through a smooth and responsive interface.</p>
@@ -757,11 +741,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-devops">
-              <a href="https://github.com/AlexAlkhatib/fleetman-kubernetes-deployment" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/fleetman-kubernetes-deployment" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/fleetman.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/fleetman.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🚚 Fleetman</h4>
                     <p>Deployed a distributed real-time vehicle fleet tracking application on a Kubernetes cluster, orchestrating Docker containers to ensure scalability and reliability.</p>
@@ -769,11 +752,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-java">
-              <a href="https://github.com/AlexAlkhatib/quizzler-android-app" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/quizzler-android-app" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/quizzler.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/quizzler.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>❓ Quizzler</h4>
                     <p>Developed an Android quiz application integrated with the Open Trivia API, dynamically generating questions to enhance the user experience.</p>
@@ -781,11 +763,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-php">
-              <a href="https://github.com/AlexAlkhatib/melody-playlist-app" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/melody-playlist-app" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/symfony-melody.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/symfony-melody.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🎵 Symfony Melody</h4>
                     <p>Created a collaborative music application that allowed users to compose, share, and manage online playlists using the Symfony framework.</p>
@@ -793,11 +774,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-java">
               <div class="portfolio-content h-100">
-                <a href="https://github.com/AlexAlkhatib/activity-management-system" target="_blank">
-                  <img src="assets/img/portfolio/activity-management-system.webp" class="img-fluid" alt="">
+                <a href="https://github.com/AlexAlkhatib/activity-management-system" target="_blank" rel="noopener noreferrer">
+                  <img src="assets/img/portfolio/activity-management-system.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🏃 Activity Management System</h4>
                     <p>Designed a physical activity support application to track, recommend, and manage personalized therapeutic programs.</p>
@@ -805,11 +785,10 @@
                 </a>
               </div>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-java">
-              <a href="https://github.com/AlexAlkhatib/granulometry-java-app" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/granulometry-java-app" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/granulometrie.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/granulometrie.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🔬 Granulometry</h4>
                     <p>Developed a scientific image analysis tool to extract and quantify particles while automatically generating statistical visualizations.</p>
@@ -817,11 +796,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-python">
-              <a href="https://github.com/AlexAlkhatib/100-days-python" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/100-days-python" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/code-challenge.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/code-challenge.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🐍 100 Days of Code Challenge</h4>
                     <p>Completed 100 Python projects in 100 days, covering automation, web development, game development, data science, and machine learning.</p>
@@ -829,59 +807,54 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/nashville-data-cleaning" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/nashville-data-cleaning" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/nashville-data-cleaning.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/nashville-data-cleaning.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🏠 Nashville Housing Data Cleaning</h4>
-                    <p>Cleaned and transformed a real estate dataset with SQL, including handling missing values, data normalization, column splitting, and duplicate removal.</p> 
+                    <p>Cleaned and transformed a real estate dataset with SQL, including handling missing values, data normalization, column splitting, and duplicate removal.</p>
                   </div>
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/amazon-web-scraper" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/amazon-web-scraper" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/amazon-web-scraper.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/amazon-web-scraper.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>⛏️ Amazon Web Scraper</h4>
-                    <p>Developed a Python web scraper to collect and monitor Amazon product prices by automating web data extraction and storage.</p> 
+                    <p>Developed a Python web scraper to collect and monitor Amazon product prices by automating web data extraction and storage.</p>
                   </div>
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/crypto-website-automation" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/crypto-website-automation" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/crypto-website-automation.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/crypto-website-automation.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>₿ Crypto Website Automation</h4>
-                    <p>Automated cryptocurrency data collection and analysis with Python by combining web scraping, data processing, and market trend monitoring.</p> 
+                    <p>Automated cryptocurrency data collection and analysis with Python by combining web scraping, data processing, and market trend monitoring.</p>
                   </div>
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/covid-sql-exploration" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/covid-sql-exploration" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/covid19.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/covid19.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🦠 COVID-19 Data Analysis</h4>
-                    <p>Explored and analyzed global COVID-19 data using advanced SQL techniques (CTEs, window functions), identifying trends in infections, deaths, and vaccinations.</p> 
+                    <p>Explored and analyzed global COVID-19 data using advanced SQL techniques (CTEs, window functions), identifying trends in infections, deaths, and vaccinations.</p>
                   </div>
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/amazon-sales-analysis" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/amazon-sales-analysis" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/amazon.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/amazon.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>📦 Amazon Sales Data Analysis</h4>
                     <p>Cleaned, filtered, and aggregated Amazon sales data to extract insights into sales trends, order statuses, and shipping methods.</p>
@@ -889,11 +862,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/ecommerce-orders-analysis" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/ecommerce-orders-analysis" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/ecommerce.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/ecommerce.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🛒 E-Commerce Orders Analysis</h4>
                     <p>Cleaned and merged order datasets, building dynamic visualizations (bar charts, scatter plots, box plots) to analyze purchasing trends and customer behavior.</p>
@@ -901,11 +873,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/pizza-sales-analysis" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/pizza-sales-analysis" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/pizza.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/pizza.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🍕 Pizza Sales Analysis</h4>
                     <p>Manipulated and visualized sales data with Pandas, exploring category performance through interactive charts and descriptive statistics.</p>
@@ -913,11 +884,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/loan-risk-analysis" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/loan-risk-analysis" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/loan.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/loan.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>💳 Loan Data Analysis</h4>
                     <p>Preprocessed, categorized, and analyzed financial data to assess risk using advanced visualizations such as scatter plots, box plots, and histograms.</p>
@@ -925,11 +895,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-data">
-              <a href="https://github.com/AlexAlkhatib/police-violence-analysis" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/police-violence-analysis" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/police.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/police.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>⚖️ Police Violence (USA)</h4>
                     <p>Analyzed demographic and geographic trends in critical incidents, visualizing correlations between socioeconomic factors and civilian mortality.</p>
@@ -937,11 +906,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-machine-learning">
-              <a href="https://github.com/AlexAlkhatib/cardio-risk-prediction" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/cardio-risk-prediction" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/heart.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/heart.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>❤️ Heart Disease Machine Learning</h4>
                     <p>Implemented multiple classification models (KNN, Naive Bayes, Logistic Regression) to predict cardiovascular risks and improve prediction accuracy.</p>
@@ -949,11 +917,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-machine-learning">
-              <a href="https://github.com/AlexAlkhatib/diamond-price-prediction" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/diamond-price-prediction" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/diamonds.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/diamonds.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>💎 Diamond Price Machine Learning</h4>
                     <p>Developed regression models (Linear Regression, Decision Trees, Random Forests) to estimate diamond prices, enhancing accuracy through ensemble learning techniques.</p>
@@ -961,11 +928,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-machine-learning">
-              <a href="https://github.com/AlexAlkhatib/sentiment-cleaner-classifier" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/sentiment-cleaner-classifier" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/sentiment.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/sentiment.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>😐 Sentiment Analysis (Tweets)</h4>
                     <p>Detected, cleaned, and classified tweets by sentiment (positive, negative, neutral) using TextBlob, visualizing trends through word clouds and bar charts.</p>
@@ -973,11 +939,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-machine-learning">
-              <a href="https://github.com/AlexAlkhatib/customer-satisfaction-prediction" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/customer-satisfaction-prediction" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/airplane.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/airplane.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>✈️ Airline Ticket Price Prediction</h4>
                     <p>Developed a machine learning model to predict ticket prices and analyze customer satisfaction based on demographic and behavioral data.</p>
@@ -985,11 +950,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-machine-learning">
-              <a href="https://github.com/AlexAlkhatib/national-anthem-clustering" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/national-anthem-clustering" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/country-flags.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/country-flags.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🌍 National Anthem Clustering</h4>
                     <p>Explored national anthems using NLP techniques to extract semantic similarities through unsupervised clustering.</p>
@@ -997,11 +961,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-machine-learning">
-              <a href="https://github.com/AlexAlkhatib/intelligent-insured-identification" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/intelligent-insured-identification" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/intelligent-insured-identification.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/intelligent-insured-identification.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🔎 Intelligent Insured Identification</h4>
                     <p>Designed and developed a machine learning prototype for policyholder identification, leveraging binary classification techniques and data quality analysis.</p>
@@ -1009,11 +972,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-deep-learning">
-              <a href="https://github.com/AlexAlkhatib/wine-quality-classifier" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/wine-quality-classifier" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/wine.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/wine.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🍷 Wine Quality Deep Learning</h4>
                     <p>Trained a deep learning model to classify and predict wine quality based on chemical characteristics.</p>
@@ -1021,11 +983,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-deep-learning">
-              <a href="https://github.com/AlexAlkhatib/fashion-mnist-cnn" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/fashion-mnist-cnn" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/fashion.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/fashion.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>👕 Fashion-MNIST Deep Learning</h4>
                     <p>Built a deep learning model to recognize and classify clothing items from the Fashion-MNIST image dataset.</p>
@@ -1033,11 +994,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-deep-learning">
-              <a href="https://github.com/AlexAlkhatib/jena-climate-cnn" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/jena-climate-cnn" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/climate.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/climate.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🌡️ Jena Climate Deep Learning</h4>
                     <p>Designed and trained a deep learning model to predict climate trends from environmental time-series data.</p>
@@ -1045,11 +1005,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-deep-learning">
-              <a href="https://github.com/AlexAlkhatib/deepfood-cnn-classifier" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/deepfood-cnn-classifier" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/food.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/food.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🍽️ Food-101 Deep Learning</h4>
                     <p>Optimized a CNN model using transfer learning and mixed precision techniques to classify over 100 food image categories with improved accuracy.</p>
@@ -1057,11 +1016,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-deep-learning">
-              <a href="https://github.com/AlexAlkhatib/sign-mnist-cnn" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/sign-mnist-cnn" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/sign.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/sign.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>✋ Sign Language MNIST Deep Learning</h4>
                     <p>Developed a CNN model to recognize sign language alphabet letters from image data.</p>
@@ -1069,11 +1027,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-recommender-system">
-              <a href="https://github.com/AlexAlkhatib/imdb-recommender-system" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/imdb-recommender-system" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/imdb.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/imdb.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🎬 IMDB Recommendation System</h4>
                     <p>Designed a hybrid recommendation system combining collaborative filtering and content-based filtering to personalize movie suggestions.</p>
@@ -1081,11 +1038,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-recommender-system">
-              <a href="https://github.com/AlexAlkhatib/anime-recommender-system" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/anime-recommender-system" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/anime.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/anime.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🎌 Anime Recommendation System</h4>
                     <p>Developed a recommendation engine for personalized anime suggestions using the Anime 2023 dataset and a hybrid recommendation model.</p>
@@ -1093,11 +1049,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-generative">
-              <a href="https://github.com/AlexAlkhatib/music-generation-transformer" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/music-generation-transformer" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/music.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/music.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🎵 MIDI Music Generation</h4>
                     <p>Trained a Transformer model to generate musical sequences, implementing positional encoding and temperature scaling to diversify compositions.</p>
@@ -1105,11 +1060,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-generative">
-              <a href="https://github.com/AlexAlkhatib/realtime-voice-translator" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/realtime-voice-translator" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/translator.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/translator.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🗣️ AI Voice Translator (Google Cloud Hackathon)</h4>
                     <p>Designed and implemented a real-time AI voice translator, integrating speech recognition and machine translation models within a cloud environment.</p>
@@ -1117,11 +1071,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-generative">
-              <a href="https://github.com/AlexAlkhatib/jira-testcase-generator" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/jira-testcase-generator" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/jira-automation.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/jira-automation.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🧠 Automatic Test Case Generator (Jira)</h4>
                     <p>Developed a Spring Boot application integrated with Jira to automatically generate detailed test cases from user stories, leveraging an Ollama model for natural language analysis.</p>
@@ -1129,11 +1082,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-devops">
-              <a href="https://github.com/AlexAlkhatib/ai-automation-n8n" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/ai-automation-n8n" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/ai-workflow-automation.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/ai-workflow-automation.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🔗 AI Workflow Automation (n8n)</h4>
                     <p>Designed and orchestrated intelligent workflows and AI agents with n8n, integrating LLMs, RAG architectures, and multi-workflow automations for scalable, production-ready systems.</p>
@@ -1141,11 +1093,10 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cs">
-              <a href="https://github.com/AlexAlkhatib/CS50x" target="_blank">
+              <a href="https://github.com/AlexAlkhatib/CS50x" target="_blank" rel="noopener noreferrer">
                 <div class="portfolio-content h-100">
-                  <img src="assets/img/portfolio/cs50x.webp" class="img-fluid" alt="">
+                  <img src="assets/img/portfolio/cs50x.webp" class="img-fluid" alt="" loading="lazy" decoding="async">
                   <div class="portfolio-info">
                     <h4>🦆 CS50x – Introduction to Computer Science</h4>
                     <p>Completed a comprehensive computer science program covering algorithms, data structures, memory management, databases, web programming, and full-stack development.</p>
@@ -1153,206 +1104,230 @@
                 </div>
               </a>
             </div>
-            <!-- End Portfolio Item -->
           </div>
-          <!-- End Portfolio Container -->
-        </div>
+          </div>
       </div>
     </section>
     <!-- /Portfolio Section -->
     <!-- Certifications Section -->
     <section id="certifications" class="certifications section">
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>CERTIFICATIONS</h2>
         <p>Discover my certifications.</p>
       </div>
-      <!-- End Section Title -->
       <div class="container">
         <div class="row gy-4">
           <!-- Certification Item 1 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/google-ai-professional-badge.webp" alt="Badge Google AI Professional" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/d4f44d34-f1b0-46bf-b945-d3aee43e4073/public_url" target="_blank">Google AI Professional</a>
-              </h4>
-              <p class="description">Certification demonstrating my ability to apply AI to research, data analysis, content creation, communication, and planning, as well as prompt engineering and AI-assisted development.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/google-ai-professional-badge.webp" alt="Badge Google AI Professional" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/d4f44d34-f1b0-46bf-b945-d3aee43e4073/public_url" target="_blank" rel="noopener noreferrer">Google AI Professional</a>
+                </h4>
+                <p class="description">Certification demonstrating my ability to apply AI to research, data analysis, content creation, communication, and planning, as well as prompt engineering and AI-assisted development.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 2 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/google-ai-essentials.webp" alt="Badge Google AI Essentials" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/cac01f68-41ca-4e9b-827a-7a4b4929a045/public_url" target="_blank">Google AI Essentials</a>
-              </h4>
-              <p class="description">Certification demonstrating my skills in using generative AI to enhance productivity, optimize tasks, and solve problems while applying responsible AI practices.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/google-ai-essentials.webp" alt="Badge Google AI Essentials" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/cac01f68-41ca-4e9b-827a-7a4b4929a045/public_url" target="_blank" rel="noopener noreferrer">Google AI Essentials</a>
+                </h4>
+                <p class="description">Certification demonstrating my skills in using generative AI to enhance productivity, optimize tasks, and solve problems while applying responsible AI practices.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 3 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/google-cloud-engineering-badge.webp" alt="Badge Google Cloud Engineering" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/746f202a-fd83-4998-863d-8ff3b7f99984/public_url" target="_blank">Google Cloud Engineering</a>
-              </h4>
-              <p class="description">Certification validating my skills in designing, deploying, and managing cloud solutions on Google Cloud Platform.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/google-cloud-engineering-badge.webp" alt="Badge Google Cloud Engineering" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/746f202a-fd83-4998-863d-8ff3b7f99984/public_url" target="_blank" rel="noopener noreferrer">Google Cloud Engineering</a>
+                </h4>
+                <p class="description">Certification validating my skills in designing, deploying, and managing cloud solutions on Google Cloud Platform.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 4 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/google-data-analytics-badge.webp" alt="Badge Google Data Analytics" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/bd7215fd-6d89-48c5-8c79-6b6c8468c51b/public_url" target="_blank">
-                Google Data Analytics</a>
-              </h4>
-              <p class="description">Certification showcasing my skills in data analysis and visualization tools.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/google-data-analytics-badge.webp" alt="Badge Google Data Analytics" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/bd7215fd-6d89-48c5-8c79-6b6c8468c51b/public_url" target="_blank" rel="noopener noreferrer">
+                  Google Data Analytics</a>
+                </h4>
+                <p class="description">Certification showcasing my skills in data analysis and visualization tools.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 5 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges//az-900-badge.webp" alt="Badge AZ-900" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/65641df2-6969-4cac-8461-63c21a7478c0/linked_in_profile" target="_blank">Microsoft Azure Fundamentals</a>
-              </h4>
-              <p class="description">Certification proving my knowledge of the fundamentals of cloud services with Microsoft Azure.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/az-900-badge.webp" alt="Badge AZ-900" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/65641df2-6969-4cac-8461-63c21a7478c0/linked_in_profile" target="_blank" rel="noopener noreferrer">Microsoft Azure Fundamentals</a>
+                </h4>
+                <p class="description">Certification proving my knowledge of the fundamentals of cloud services with Microsoft Azure.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 6 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges//oci-foundations-associate-badge.webp" alt="Oracle Cloud Infrastructure Foundations Associate Badge" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=EDC237CACC24350C2500162308AC8D98C49818E063D68BCF46D5A7A0C6468C41" target="_blank">Oracle Cloud Infrastructure Foundations</a>
-              </h4>
-              <p class="description">Certification validating my understanding of public cloud fundamentals and key services provided by Oracle Cloud Infrastructure.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/oci-foundations-associate-badge.webp" alt="Oracle Cloud Infrastructure Foundations Associate Badge" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=EDC237CACC24350C2500162308AC8D98C49818E063D68BCF46D5A7A0C6468C41" target="_blank" rel="noopener noreferrer">Oracle Cloud Infrastructure Foundations</a>
+                </h4>
+                <p class="description">Certification validating my understanding of public cloud fundamentals and key services provided by Oracle Cloud Infrastructure.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 7 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/ibm-data-fundamentals-badge.webp" alt="Badge IBM Data Fundamentals" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/65d3506a-a712-4382-93ce-6ab61de8183e/public_url" target="_blank">IBM Data Fundamentals</a>
-              </h4>
-              <p class="description">Certification validating my fundamental knowledge of data concepts, including data analysis foundations, databases, and key data engineering principles.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/ibm-data-fundamentals-badge.webp" alt="Badge IBM Data Fundamentals" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/65d3506a-a712-4382-93ce-6ab61de8183e/public_url" target="_blank" rel="noopener noreferrer">IBM Data Fundamentals</a>
+                </h4>
+                <p class="description">Certification validating my fundamental knowledge of data concepts, including data analysis foundations, databases, and key data engineering principles.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 8 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/ibm-artificial-intelligence-fundamentals-badge.webp" alt="Badge IBM Artificial Intelligence Fundamentals" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/08dbbc64-e682-4dc3-91a8-3ecdc1e24d1b/public_url" target="_blank">IBM Artificial Intelligence Fundamentals</a>
-              </h4>
-              <p class="description">Certification demonstrating my understanding of fundamental concepts in artificial intelligence, machine learning, and their real-world applications.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/ibm-artificial-intelligence-fundamentals-badge.webp" alt="Badge IBM Artificial Intelligence Fundamentals" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/08dbbc64-e682-4dc3-91a8-3ecdc1e24d1b/public_url" target="_blank" rel="noopener noreferrer">IBM Artificial Intelligence Fundamentals</a>
+                </h4>
+                <p class="description">Certification demonstrating my understanding of fundamental concepts in artificial intelligence, machine learning, and their real-world applications.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 9 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/networking-basics-badge.webp" alt="Badge CISCO Networking Basics" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/83de686b-06e3-48a0-aefe-9d714dd687f9/public_url" target="_blank">CISCO Networking Basics</a>
-              </h4>
-              <p class="description">Certification demonstrating my understanding of fundamental networking concepts, including protocols, network architecture, and basic configuration of Cisco devices.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/networking-basics-badge.webp" alt="Badge CISCO Networking Basics" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/83de686b-06e3-48a0-aefe-9d714dd687f9/public_url" target="_blank" rel="noopener noreferrer">CISCO Networking Basics</a>
+                </h4>
+                <p class="description">Certification demonstrating my understanding of fundamental networking concepts, including protocols, network architecture, and basic configuration of Cisco devices.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 10 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/introduction-to-cybersecurity-badge.webp" alt="Badge CISCO Introduction to Cybersecurity" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://www.credly.com/badges/be77ea27-80d8-42b8-92f4-b4a42cacad31/public_url" target="_blank">CISCO Introduction to Cybersecurity</a>
-              </h4>
-              <p class="description">Certification demonstrating my understanding of cybersecurity fundamentals, including threats, vulnerabilities, network protection, and security best practices.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/introduction-to-cybersecurity-badge.webp" alt="Badge CISCO Introduction to Cybersecurity" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://www.credly.com/badges/be77ea27-80d8-42b8-92f4-b4a42cacad31/public_url" target="_blank" rel="noopener noreferrer">CISCO Introduction to Cybersecurity</a>
+                </h4>
+                <p class="description">Certification demonstrating my understanding of cybersecurity fundamentals, including threats, vulnerabilities, network protection, and security best practices.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 11 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges//cs50-badge.webp" alt="Harvard CS50x Badge" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://cs50.harvard.edu/certificates/fe10e743-acbe-4d40-a306-40414f730908" target="_blank">Harvard CS50x Introduction to Computer Science</a>
-              </h4>
-              <p class="description">Certification confirming the successful completion of the CS50x program, covering computer science fundamentals: C and Python programming, data structures, algorithms, memory management, SQL databases, and web development with Flask.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/cs50-badge.webp" alt="Harvard CS50x Badge" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://cs50.harvard.edu/certificates/fe10e743-acbe-4d40-a306-40414f730908" target="_blank" rel="noopener noreferrer">Harvard CS50x Introduction to Computer Science</a>
+                </h4>
+                <p class="description">Certification confirming the successful completion of the CS50x program, covering computer science fundamentals: C and Python programming, data structures, algorithms, memory management, SQL databases, and web development with Flask.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 12 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges//ef-set-badge.webp" alt="EF Standard English Test Badge" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://cert.efset.org/en/1L3YYH" target="_blank">EF SET English Certificate</a>
-              </h4>
-              <p class="description">Achieved a score of 61/100 – Advanced C1 level, demonstrating strong English proficiency in reading, listening, writing, and speaking, with the ability to understand complex texts, communicate effectively, and produce detailed and structured written content.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/ef-set-badge.webp" alt="EF Standard English Test Badge" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://cert.efset.org/en/1L3YYH" target="_blank" rel="noopener noreferrer">EF SET English Certificate</a>
+                </h4>
+                <p class="description">Achieved a score of 61/100 – Advanced C1 level, demonstrating strong English proficiency in reading, listening, writing, and speaking, with the ability to understand complex texts, communicate effectively, and produce detailed and structured written content.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 13 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/java-badge.webp" alt="Badge Java Programming Fundamentals" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://codesignal.com/learn/certificates/cmp2wvmsp00d2l304si6dqu88/course-paths/8" target="_blank">Java Programming Fundamentals</a>
-              </h4>
-              <p class="description">Certification demonstrating my knowledge of Java development fundamentals, including object-oriented programming, classes, interfaces, inheritance, and exception handling.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/java-badge.webp" alt="Badge Java Programming Fundamentals" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://codesignal.com/learn/certificates/cmp2wvmsp00d2l304si6dqu88/course-paths/8" target="_blank" rel="noopener noreferrer">Java Programming Fundamentals</a>
+                </h4>
+                <p class="description">Certification demonstrating my knowledge of Java development fundamentals, including object-oriented programming, classes, interfaces, inheritance, and exception handling.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
           <!-- Certification Item 14 -->
-          <div class="col-lg-6 col-md-6 certification-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="badge flex-shrink-0">
-                <img src="assets/img/badges/spring-boot-badge.webp" alt="Badge Spring Boot Essentials" class="img-fluid">
-            </div>
-            <div>
-              <h4 class="title">
-                <a href="https://codesignal.com/learn/certificates/cmp2wvmsp00d2l304si6dqu88/course-paths/107" target="_blank">Spring Boot Essentials</a>
-              </h4>
-              <p class="description">Certification demonstrating my knowledge of Spring Boot development, including REST API development, dependency injection, Spring Beans, request validation, exception handling, and data persistence using Spring Data JPA.</p>
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="certification-item d-flex">
+              <div class="badge flex-shrink-0">
+                  <img src="assets/img/badges/spring-boot-badge.webp" alt="Badge Spring Boot Essentials" class="img-fluid">
+              </div>
+              <div>
+                <h4 class="title">
+                  <a href="https://codesignal.com/learn/certificates/cmp2wvmsp00d2l304si6dqu88/course-paths/107" target="_blank" rel="noopener noreferrer">Spring Boot Essentials</a>
+                </h4>
+                <p class="description">Certification demonstrating my knowledge of Spring Boot development, including REST API development, dependency injection, Spring Beans, request validation, exception handling, and data persistence using Spring Data JPA.</p>
+              </div>
             </div>
           </div>
-          <!-- End Certification Item -->
+
         </div>
       </div>
     </section>
@@ -1364,7 +1339,7 @@
         <p>I am passionate about chess, a discipline that develops critical thinking, strategy, and concentration. ⚫ ⚪</p>
         <div class="chess-challenge">
           <span>Want a game ?</span>
-    
+
           <a
             href="https://www.chess.com/member/Alex-Alkhatib"
             target="_blank"
@@ -1373,7 +1348,7 @@
           >
             <!-- SVG Chess.com -->
             <img src="assets/img/chess/chesscom.webp" alt="Chess.com" class="chess-icon">
-    
+
             <span>Challenge me on Chess.com</span>
           </a>
         </div>
@@ -1381,90 +1356,88 @@
       <div class="container" data-aos="fade-up" data-aos-delay="200">
         <div class="row g-4">
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/00.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/00.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“For me, chess is not a game but an art.” — Alexandre Alekhine</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/01.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/01.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“Chess is a struggle, not between two minds, but between two wills.” — Emanuel Lasker</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/02.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/02.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“Chess is the struggle against error.” — Johannes Zukertort</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/03.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/03.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“Chess is the art of analysis.” — Mikhail Botvinnik</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/04.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/04.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“Chess has three components: time, space, and material comes last.” — Mikhail Tal</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/05.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/05.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“He does not play chess for amusement: he celebrates a cult.” — Vladimir Nabokov</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/06.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/06.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“Chess is imagination.” — David Bronstein</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/07.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/07.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“The game of chess seems to be cast out of time.” — Antoine de Saint-Exupéry</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/08.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/08.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“The greatest game of the mind ever invented; the more you learn it, the more you enjoy it.” — Garry Kasparov</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/09.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/09.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“Chess is a matter of sensitive judgment. Knowing when to strike and when to evade.” — Bobby Fischer</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/10.webp" class="img-fluid rounded shadow-sm">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/10.webp" alt="" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“The one who takes risks may lose, but the one who takes no risks always loses.” — Savielly Tartakower</figcaption>
-            </div>
+            </figure>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="hobby-item">
-              <img src="assets/img/chess/11.webp" class="img-fluid rounded shadow-sm" alt="Échiquier">
+            <figure class="hobby-item">
+              <img src="assets/img/chess/11.webp" alt="Échiquier" class="img-fluid rounded shadow-sm" loading="lazy" decoding="async">
               <figcaption class="mt-2 fst-italic">“In chess, self-esteem is satisfied when victory is achieved.” — Benjamin Franklin</figcaption>
-            </div>
+            </figure>
           </div>
         </div>
-      </div>      
+      </div>
     </section>
     <!-- /Hobbies Section -->
     <!-- Contact Section -->
     <section id="contact" class="contact section">
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>CONTACT</h2>
-        <p>Feel free to contact me for any professional opportunity, collaboration, or inquiry.</p> 
+        <p>Feel free to contact me for any professional opportunity, collaboration, or inquiry.</p>
         <p>I am available and ready to discuss your projects.</p>
       </div>
-      <!-- End Section Title -->
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
           <div class="col-lg-4">
@@ -1476,7 +1449,6 @@
                   <p>Tours, France</p>
                 </div>
               </div>
-              <!-- End Info Item -->
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
@@ -1484,7 +1456,6 @@
                   <p><a href="tel:0781442433" class="call-link">07.81.44.24.33</a></p>
                 </div>
               </div>
-              <!-- End Info Item -->
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
@@ -1492,20 +1463,18 @@
                   <p><a href="mailto:alex.alkhatib@outlook.com">alex.alkhatib@outlook.com</a></p>
                 </div>
               </div>
-              <!-- End Info Item -->
             </div>
           </div>
           <div class="col-lg-8">
             <div class="ratio ratio-16x9">
-              <iframe 
-                src="https://maps.google.com/maps?hl=en&amp;q=Tours+(Mon%20Adresse)&amp;z=14&amp;output=embed" 
-                style="border:0;" 
-                allowfullscreen="" 
+              <iframe
+                src="https://maps.google.com/maps?hl=en&amp;q=Tours+(Mon%20Adresse)&amp;z=14&amp;output=embed"
+                title="Location of Tours, France"
+                allowfullscreen
                 loading="lazy">
               </iframe>
             </div>
           </div>
-          <!-- End Contact Form -->
         </div>
       </div>
     </section>
@@ -1523,21 +1492,16 @@
     </div>
   </footer>
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Preloader -->
   <div id="preloader"></div>
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+

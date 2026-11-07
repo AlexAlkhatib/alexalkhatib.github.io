@@ -7,38 +7,59 @@
 */
 
 /*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
+# Table of contents
+  1. Design tokens (fonts, colors, presets)
+  2. Base
+  3. Layout
+     3.1 Header / profile / language switch
+     3.2 Navigation menu
+     3.3 Footer
+     3.4 Preloader
+     3.5 Scroll top button
+  4. Sections (page order)
+     4.1 Hero
+     4.2 About
+     4.3 Skills
+     4.4 Resume (timeline)
+     4.5 Portfolio
+     4.6 Certifications
+     4.7 Hobbies
+     4.8 Contact
+  5. Dark theme adjustments
+  6. Utilities & motion preferences
 --------------------------------------------------------------*/
-/* Fonts */
+
+/*--------------------------------------------------------------
+# 1. Design tokens
+--------------------------------------------------------------*/
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  /* Fonts */
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+
+  /* Global colors - change the whole color scheme from here */
+  --background-color: #ffffff;
+  --default-color: #272829;
+  --heading-color: #050d18;
+  --accent-color: #149ddd;
+  --surface-color: #ffffff;
+
+  /* Navigation colors */
+  --nav-color: #a8a9b4;
+  --nav-hover-color: #ffffff;
+
+  /* Shared borders and shadows */
+  --border-subtle: color-mix(in srgb, var(--default-color), transparent 90%);
+  --shadow-md: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  /* Text and icons drawn on top of an accent-colored fill */
+  --accent-contrast: #ffffff;
+
+  color-scheme: light;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
-  --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
-}
-
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
+/* Color presets - override the global colors on any section or element */
 .light-background {
   --background-color: #f4fafd;
   --surface-color: #ffffff;
@@ -49,17 +70,42 @@
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #151f2b;
-  --contrast-color: #ffffff;
 }
 
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
+/* Dark theme - same accent hue, lightened for readable text on dark surfaces.
+   Contrast ratios on #0b131f: body 12.7:1, headings 17.6:1, links 7.8:1,
+   dark text on an accent fill 7.9:1. */
+[data-theme="dark"] {
+  --background-color: #0b131f;
+  --default-color: #ccd6e2;
+  --heading-color: #f4f9fd;
+  --accent-color: #2eb4e8;
+  --accent-contrast: #08131d;
+  --surface-color: #121b28;
+  --nav-color: #9fb0c3;
+  --nav-hover-color: #ffffff;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --shadow-md: 0 0 20px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .light-background {
+  --background-color: #0f1826;
+  --surface-color: #16202f;
+}
+
+[data-theme="dark"] .dark-background {
+  --background-color: #070c14;
+  --surface-color: #101a27;
 }
 
 /*--------------------------------------------------------------
-# General Styling & Shared Classes
+# 2. Base
 --------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -87,60 +133,48 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  overflow: clip;
 }
 
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
+.section-title {
+  padding-bottom: 60px;
+  position: relative;
 }
 
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
 }
 
-.php-email-form .loading:before {
+.section-title h2:after {
   content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: 0;
 }
 
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
+.section-title p {
+  margin-bottom: 0;
+}
 
-  100% {
-    transform: rotate(360deg);
-  }
+.section-title p + p {
+  margin-top: 12px;
 }
 
 /*--------------------------------------------------------------
-# Global Header
+# 3.1 Header / profile / language switch
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
@@ -154,7 +188,7 @@ h6 {
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
   z-index: 997;
-  border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-right: 1px solid var(--border-subtle);
 }
 
 .header .profile-img img {
@@ -167,11 +201,6 @@ h6 {
 .header .logo {
   line-height: 1;
   margin-bottom: 15px;
-}
-
-.header .logo img {
-  max-height: 32px;
-  margin-right: 8px;
 }
 
 .header .logo h1 {
@@ -201,12 +230,90 @@ h6 {
 }
 
 .header .social-links a:hover {
-  color: var(--contrast-color);
+  color: var(--accent-contrast);
   background: var(--accent-color);
 }
 
-@media (min-width: 1200px) {
+.header .header-toggle {
+  color: var(--accent-contrast);
+  background-color: var(--accent-color);
+  font-family: inherit;
+  font-size: 22px;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
 
+.header .header-toggle:hover {
+  color: var(--accent-contrast);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+.header .header-toggle:focus-visible {
+  outline: 2px solid var(--accent-contrast);
+  outline-offset: 3px;
+}
+
+/* Language switch (FR / EN) + theme toggle */
+.header-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 7px 0 15px;
+}
+
+.language-switch {
+  display: flex;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 30px;
+  padding: 0;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+  color: var(--accent-contrast);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.language-switch a {
+  margin: 3px;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+}
+
+@media (min-width: 1200px) {
   .header~main,
   .header~#footer {
     margin-left: 300px;
@@ -223,36 +330,9 @@ h6 {
   left: 0;
 }
 
-.header .header-toggle {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999;
-  transition: background-color 0.3s;
-}
-
-.header .header-toggle:hover {
-  color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
-}
-
 /*--------------------------------------------------------------
-# Navigation Menu
+# 3.2 Navigation menu
 --------------------------------------------------------------*/
-.mobile-nav-toggle {
-  display: none;
-}
-
 .navmenu {
   padding: 0;
   z-index: 9997;
@@ -284,28 +364,6 @@ h6 {
   margin-right: 10px;
 }
 
-.navmenu a .toggle-dropdown,
-.navmenu a:focus .toggle-dropdown {
-  font-size: 12px;
-  line-height: 0;
-  margin-left: auto;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: 0.3s;
-  flex-shrink: 0;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.navmenu a .toggle-dropdown:hover,
-.navmenu a:focus .toggle-dropdown:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-}
-
 .navmenu a:hover,
 .navmenu .active,
 .navmenu .active:focus {
@@ -318,51 +376,8 @@ h6 {
   color: var(--accent-color);
 }
 
-.navmenu .active .toggle-dropdown,
-.navmenu .active:focus .toggle-dropdown {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  transform: rotate(180deg);
-}
-
-.navmenu .dropdown {
-  display: block;
-}
-
-.navmenu .dropdown a,
-.navmenu .dropdown a:focus {
-  color: --nav-dropdown-color;
-}
-
-.navmenu .dropdown a:hover,
-.navmenu .dropdown .active,
-.navmenu .dropdown .active:focus {
-  color: var(--nav-dropdown-hover-color);
-}
-
-.navmenu .dropdown ul {
-  position: static;
-  display: none;
-  z-index: 99;
-  padding: 5px 10px;
-  margin: 5px 10px;
-  background-color: var(--nav-dropdown-background-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  box-shadow: none;
-  transition: all 0.5s ease-in-out;
-}
-
-.navmenu .dropdown ul ul {
-  background-color: rgba(33, 37, 41, 0.1);
-}
-
-.navmenu .dropdown>.dropdown-active {
-  display: block;
-  background-color: rgba(33, 37, 41, 0.03);
-}
-
 /*--------------------------------------------------------------
-# Global Footer
+# 3.3 Footer
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
@@ -370,21 +385,15 @@ h6 {
   font-size: 14px;
   padding: 40px 0;
   position: relative;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .footer .copyright p {
   margin-bottom: 0;
 }
 
-.footer .credits {
-  margin-top: 4px;
-  font-size: 13px;
-  text-align: center;
-}
-
 /*--------------------------------------------------------------
-# Preloader
+# 3.4 Preloader
 --------------------------------------------------------------*/
 #preloader {
   position: fixed;
@@ -419,7 +428,7 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Scroll Top Button
+# 3.5 Scroll top button
 --------------------------------------------------------------*/
 .scroll-top {
   position: fixed;
@@ -437,13 +446,17 @@ h6 {
 
 .scroll-top i {
   font-size: 24px;
-  color: var(--contrast-color);
+  color: var(--accent-contrast);
   line-height: 0;
 }
 
 .scroll-top:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
+}
+
+.scroll-top:focus-visible {
+  outline: 2px solid var(--heading-color);
+  outline-offset: 3px;
 }
 
 .scroll-top.active {
@@ -453,94 +466,7 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
-  }
-}
-
-/*--------------------------------------------------------------
-# Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
-.page-title {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 25px 0;
-  position: relative;
-}
-
-.page-title h1 {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.page-title .breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.page-title .breadcrumbs ol li+li {
-  padding-left: 10px;
-}
-
-.page-title .breadcrumbs ol li+li::before {
-  content: "/";
-  display: inline-block;
-  padding-right: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-/*--------------------------------------------------------------
-# Global Sections
---------------------------------------------------------------*/
-section,
-.section {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 60px 0;
-  overflow: clip;
-}
-
-/*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
-.section-title {
-  padding-bottom: 60px;
-  position: relative;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
-}
-
-.section-title h2:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--accent-color);
-  left: 0;
-  bottom: 0;
-}
-
-.section-title p {
-  margin-bottom: 0;
-}
-
-/*--------------------------------------------------------------
-# Hero Section
+# 4.1 Hero
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
@@ -591,23 +517,6 @@ section,
   border-bottom: 2px solid var(--accent-color);
 }
 
-.hero .social-links {
-  margin-top: 25px;
-}
-
-.hero .social-links a {
-  font-size: 24px;
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  line-height: 1;
-  margin-right: 20px;
-  transition: 0.3s;
-}
-
-.hero .social-links a:hover {
-  color: var(--accent-color);
-}
-
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
@@ -619,7 +528,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# About Section
+# 4.2 About
 --------------------------------------------------------------*/
 .about .content h2 {
   font-weight: 700;
@@ -648,141 +557,365 @@ section,
   line-height: 0;
 }
 
+.about .signature img {
+  max-width: 250px;
+  height: auto;
+}
+
 /*--------------------------------------------------------------
-# Stats Section
+# 4.3 Skills
 --------------------------------------------------------------*/
-.stats .stats-item {
+#skills {
+  --skills-blue: #149ddd;
+  --skills-blue-dark: #087db5;
+  --skills-blue-light: #eaf7fd;
+  --skills-blue-border: #d8edf8;
+}
+
+#skills .section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#skills .section-title h2 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: left;
+}
+
+#skills .skills-logo {
+  width: 80px;
+  height: auto;
+  transition: transform 0.4s ease-in-out;
+}
+
+#skills .skills-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Skill cards grid */
+#skills .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+#skills .skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  min-height: 220px;
   padding: 30px;
-  width: 100%;
+  background: #fff;
+  border: 1px solid var(--skills-blue-border);
+  border-radius: 8px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.stats .stats-item i {
-  color: var(--accent-color);
-  display: block;
-  font-size: 44px;
-  float: left;
-  line-height: 0;
+#skills .skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.stats .stats-item .purecounter {
+#skills .skill-icon {
+  display: inline-flex;
+  flex: 0 0 54px;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--skills-blue-light);
+  color: var(--skills-blue);
+  font-size: 23px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+#skills .skill-card h3 {
+  margin: 0;
   color: var(--heading-color);
-  font-size: 48px;
-  line-height: 40px;
-  display: block;
-  font-weight: 700;
-  margin-left: 60px;
+  font-family: var(--heading-font);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
-.stats .stats-item p {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  padding: 15px 0 0 0;
-  margin: 0 0 0 60px;
+#skills .skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+}
+
+#skills .skill-tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 5px;
+  background: var(--skills-blue-light);
+  color: var(--skills-blue-dark);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #skills .skill-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--skills-blue);
+    box-shadow: 0 14px 35px rgba(20, 157, 221, 0.16);
+  }
+
+  #skills .skill-card:hover .skill-icon {
+    background: var(--skills-blue);
+    color: var(--accent-contrast);
+    transform: scale(1.06);
+  }
+
+  #skills .skill-card:hover .skill-tags span {
+    background: #d9f0fc;
+    color: var(--skills-blue-dark);
+  }
+}
+
+#skills .skill-card:focus-within {
+  outline: 2px solid var(--skills-blue);
+  outline-offset: 3px;
+}
+
+/*--------------------------------------------------------------
+# 4.4 Resume (timeline)
+--------------------------------------------------------------*/
+#resume {
+  background: var(--background-color);
+  color: var(--default-color);
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+#resume .section-title {
+  padding-bottom: 35px;
+}
+
+#resume .section-title > p {
+  max-width: 850px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+#resume .resume-column-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--heading-color);
   font-family: var(--heading-font);
+  font-size: 23px;
+  font-weight: 700;
+  margin: 0 0 25px;
+}
+
+#resume .resume-column-title > i {
+  color: var(--accent-color);
+  font-size: 23px;
+}
+
+#resume .resume-timeline {
+  position: relative;
+  padding-left: 26px;
+}
+
+#resume .resume-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 12px;
+  width: 2px;
+  background: var(--accent-color);
+  opacity: 0.75;
+}
+
+#resume .resume-card {
+  position: relative;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+  border-radius: 8px;
+  padding: 26px 25px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.025);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+#resume .resume-card:hover {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 35%);
+  box-shadow: 0 8px 25px rgba(20, 157, 221, 0.09);
+  transform: translateY(-2px);
+}
+
+#resume .resume-timeline-dot {
+  position: absolute;
+  left: -35px;
+  top: 32px;
+  width: 17px;
+  height: 17px;
+  border: 3px solid var(--accent-color);
+  background: var(--background-color);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+#resume .resume-card h4 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+#resume .resume-card-accent {
+  color: var(--accent-color);
+}
+
+#resume .resume-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 17px;
+  color: var(--default-color);
+  opacity: 0.8;
   font-size: 14px;
 }
 
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
+#resume .resume-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 
-.skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: var(--heading-font);
-}
-
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Resume Section
---------------------------------------------------------------*/
-.resume .resume-title {
-  color: var(--heading-color);
-  font-size: 26px;
-  font-weight: 700;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.resume .resume-item {
-  padding: 0 0 20px 20px;
-  margin-top: -2px;
-  border-left: 2px solid var(--accent-color);
-  position: relative;
-}
-
-.resume .resume-item h4 {
-  line-height: 18px;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 10px;
-}
-
-.resume .resume-item h5 {
+#resume .resume-meta i {
+  color: var(--accent-color);
   font-size: 16px;
-  padding: 5px 15px;
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 10px;
 }
 
-.resume .resume-item ul {
-  padding-left: 20px;
+#resume .resume-context {
+  line-height: 1.8;
+  margin: 0 0 22px;
+  font-size: 14px;
 }
 
-.resume .resume-item ul li {
-  padding-bottom: 10px;
+#resume .resume-context strong {
+  color: var(--heading-color);
 }
 
-.resume .resume-item:last-child {
-  padding-bottom: 0;
+#resume .resume-subtitle {
+  font-family: var(--default-font);
+  color: var(--default-color);
+  opacity: 0.7;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 14px;
 }
 
-.resume .resume-item::before {
+#resume .resume-missions {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+
+#resume .resume-missions li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  line-height: 1.75;
+  font-size: 14px;
+}
+
+#resume .resume-missions li::before {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50px;
-  left: -9px;
-  top: 0;
-  background: var(--background-color);
-  border: 2px solid var(--accent-color);
+  left: 3px;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  transform: rotate(45deg);
+  border-radius: 1px;
 }
 
-.no-dot {
-  list-style-type: none;
+#resume .resume-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px 17px;
+  margin: 20px 0;
+  background: color-mix(in srgb, var(--accent-color), transparent 94%);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 5px;
+}
+
+#resume .resume-highlight > i {
+  flex-shrink: 0;
+  color: var(--accent-color);
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+#resume .resume-highlight p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#resume .resume-highlight strong {
+  color: var(--heading-color);
+}
+
+#resume .resume-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+#resume .resume-tags span {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--accent-color), transparent 91%);
+  color: var(--accent-color);
+  font-family: var(--default-font);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+#resume .row {
+  align-items: flex-start;
 }
 
 /*--------------------------------------------------------------
-# Portfolio Section
+# 4.5 Portfolio
 --------------------------------------------------------------*/
 .portfolio .portfolio-filters {
   padding: 0;
@@ -797,16 +930,21 @@ section,
   padding: 0;
   font-size: 14px;
   font-weight: 400;
-  margin: 0 10px;
+  margin: 0 10px 10px;
   line-height: 1;
   text-transform: uppercase;
-  margin-bottom: 10px;
   transition: all 0.3s ease-in-out;
 }
 
 .portfolio .portfolio-filters li:hover,
 .portfolio .portfolio-filters li.filter-active {
   color: var(--accent-color);
+}
+
+.portfolio .portfolio-filters li:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .portfolio .portfolio-filters li:first-child {
@@ -817,19 +955,15 @@ section,
   margin-right: 0;
 }
 
-@media (max-width: 575px) {
-  .portfolio .portfolio-filters li {
-    font-size: 14px;
-    margin: 0 5px;
-  }
-}
-
 .portfolio .portfolio-content {
   position: relative;
   overflow: hidden;
 }
 
 .portfolio .portfolio-content img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
   transition: 0.3s;
 }
 
@@ -847,7 +981,7 @@ section,
   font-size: 14px;
   padding: 5px 10px;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--accent-contrast);
   display: inline-block;
   background-color: var(--accent-color);
 }
@@ -864,28 +998,6 @@ section,
   color: rgba(255, 255, 255, 0.8);
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link,
-.portfolio .portfolio-content .portfolio-info .details-link {
-  position: absolute;
-  left: calc(50% - 40px);
-  font-size: 26px;
-  top: calc(50% - 14px);
-  color: #fff;
-  transition: 0.3s;
-  line-height: 1.2;
-}
-
-.portfolio .portfolio-content .portfolio-info .preview-link:hover,
-.portfolio .portfolio-content .portfolio-info .details-link:hover {
-  color: var(--accent-color);
-}
-
-.portfolio .portfolio-content .portfolio-info .details-link {
-  left: 50%;
-  font-size: 34px;
-  line-height: 0;
-}
-
 .portfolio .portfolio-content:hover .portfolio-info {
   opacity: 1;
 }
@@ -895,172 +1007,146 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Services Section
+# 4.6 Certifications
 --------------------------------------------------------------*/
-.services .service-item {
-  position: relative;
+.certifications .certification-item {
+  gap: 20px;
+  height: 100%;
+  padding: 22px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-.services .service-item .icon {
-  background: var(--accent-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  transition: 0.5s;
-  border: 1px solid var(--accent-color);
-  margin-right: 20px;
-}
-
-.services .service-item .icon i {
-  color: var(--contrast-color);
-  font-size: 24px;
+.certifications .certification-item .badge {
+  display: block;
+  padding: 0;
+  background: none;
   line-height: 0;
 }
 
-.services .service-item:hover .icon {
-  background: var(--surface-color);
+.certifications .certification-item .badge img {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
 }
 
-.services .service-item:hover .icon i {
-  color: var(--accent-color);
-}
-
-.services .service-item .title {
+.certifications .certification-item .title {
+  font-size: 17px;
   font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin: 0 0 8px;
 }
 
-.services .service-item .title a {
+.certifications .certification-item .title a {
   color: var(--heading-color);
 }
 
-.services .service-item .title a:hover {
+.certifications .certification-item .title a:hover {
   color: var(--accent-color);
 }
 
-.services .service-item .description {
-  line-height: 24px;
+.certifications .certification-item .description {
+  margin: 0;
   font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .certifications .certification-item:hover {
+    border-color: color-mix(in srgb, var(--accent-color), transparent 55%);
+    box-shadow: 0 8px 25px rgba(20, 157, 221, 0.1);
+    transform: translateY(-3px);
+  }
 }
 
 /*--------------------------------------------------------------
-# Testimonials Section
+# 4.7 Hobbies
 --------------------------------------------------------------*/
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
-}
-
-.testimonials .testimonial-item {
-  box-sizing: content-box;
-  text-align: center;
-  min-height: 320px;
-}
-
-.testimonials .testimonial-item .testimonial-img {
-  width: 90px;
-  border-radius: 50%;
-  margin: 0 auto;
-}
-
-.testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-}
-
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+.hobby-item {
   margin: 0;
 }
 
-.testimonials .testimonial-item .quote-icon-left,
-.testimonials .testimonial-item .quote-icon-right {
-  color: color-mix(in srgb, var(--accent-color), transparent 40%);
-  font-size: 26px;
-  line-height: 0;
+.hobby-item img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
+.hobby-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
-  transform: scale(-1, -1);
+.hobby-item figcaption {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-.testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 15px 15px 15px;
-  padding: 20px;
-  background-color: var(--surface-color);
-  position: relative;
-  margin-bottom: 35px;
-  border-radius: 6px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+.chess-challenge {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
-.testimonials .testimonial-item p::after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-top: 20px solid var(--surface-color);
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  position: absolute;
-  bottom: -20px;
-  left: calc(50% - 20px);
+.chess-challenge span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
 }
 
-.testimonials .swiper-wrapper {
-  height: auto;
+.chess-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: #81b64c;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.25s ease;
 }
 
-.testimonials .swiper-pagination {
-  margin-top: 40px;
-  position: relative;
+.chess-btn:hover {
+  background: #6da33f;
+  color: #fff !important;
+  transform: translateY(-2px);
 }
 
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: var(--background-color);
-  opacity: 1;
-  border: 1px solid var(--accent-color);
+.chess-btn span {
+  color: #fff !important;
+  font-weight: 700;
 }
 
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
+.chess-icon {
+  width: 24px;
+  height: 24px;
 }
 
 /*--------------------------------------------------------------
-# Contact Section
+# 4.8 Contact
 --------------------------------------------------------------*/
 .contact .info-wrap {
   background-color: var(--surface-color);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
   padding: 30px;
 }
 
-@media (max-width: 575px) {
-  .contact .info-wrap {
-    padding: 20px;
-  }
+.contact .ratio iframe {
+  border: 0;
 }
 
 .contact .info-item {
   margin-bottom: 40px;
+}
+
+.contact .info-item:last-child {
+  margin-bottom: 0;
 }
 
 .contact .info-item i {
@@ -1092,440 +1178,53 @@ section,
 
 .contact .info-item:hover i {
   background: var(--accent-color);
-  color: var(--contrast-color);
+  color: var(--accent-contrast);
 }
 
-.contact .php-email-form {
-  background-color: var(--surface-color);
-  height: 100%;
-  padding: 30px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+/*--------------------------------------------------------------
+# 5. Dark theme adjustments
+   Colors that are hard-coded in a component (instead of driven by a
+   token) are re-declared here for the dark palette.
+--------------------------------------------------------------*/
+[data-theme="dark"] #skills {
+  --skills-blue: var(--accent-color);
+  --skills-blue-dark: #9fe2fb;
+  --skills-blue-light: rgba(46, 180, 232, 0.14);
+  --skills-blue-border: rgba(255, 255, 255, 0.09);
 }
 
-@media (max-width: 575px) {
-  .contact .php-email-form {
-    padding: 20px;
-  }
+[data-theme="dark"] #skills .skill-card {
+  background: var(--surface-color);
 }
 
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
-  font-size: 14px;
-  padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
+[data-theme="dark"] #skills .skill-card:hover .skill-tags span {
+  background: rgba(46, 180, 232, 0.22);
+  color: #d6f1fd;
+}
+
+[data-theme="dark"] #resume .resume-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .chess-challenge span {
   color: var(--default-color);
-  background-color: var(--surface-color);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
-  border-color: var(--accent-color);
-}
-
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-.contact .php-email-form button[type=submit] {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+/* The signature is black ink on a transparent background */
+[data-theme="dark"] .signature-img {
+  filter: invert(1) brightness(1.05);
 }
 
 /*--------------------------------------------------------------
-# Portfolio Details Section
+# 6. Utilities & motion preferences
 --------------------------------------------------------------*/
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
-  opacity: 1;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
-
-.portfolio-details .portfolio-info {
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-}
-
-/*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
-.service-details .services-list {
-  padding: 10px 30px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  margin-bottom: 20px;
-}
-
-.service-details .services-list a {
-  display: block;
-  line-height: 1;
-  padding: 8px 0 8px 15px;
-  border-left: 3px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  margin: 20px 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  transition: 0.3s;
-}
-
-.service-details .services-list a.active {
-  color: var(--heading-color);
-  font-weight: 700;
-  border-color: var(--accent-color);
-}
-
-.service-details .services-list a:hover {
-  border-color: var(--accent-color);
-}
-
-.service-details .services-img {
-  margin-bottom: 20px;
-}
-
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.service-details h4 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.service-details p {
-  font-size: 15px;
-}
-
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
-
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-#skills .section-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Titre à gauche, logo à droite */
-  gap: 20px;
-  flex-wrap: wrap; /* Pour le responsive */
-}
-
-#skills .section-title h2 {
-  margin: 0;
-  font-size: 2rem;
-  text-align: left;
-}
-
-#skills .skills-logo {
-  width: 80px; /* Taille du logo */
-  height: auto;
-  transition: transform 0.4s ease-in-out;
-}
-
-#skills .skills-logo:hover {
-  transform: scale(1.1);
-}
-
-/* === Responsive === */
-@media (max-width: 768px) {
-  #skills .section-title {
-    flex-direction: column;
-    align-items: flex-start; /* Garde le texte à gauche */
-  }
-
-  #skills .skills-logo {
-    margin-top: 5px;
-    margin-bottom: -50px;
-    align-self: center; /* Centre le logo sous le texte */
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
   }
 }
 
-/*--------------------------------------------------------------
-# Hobbies Section
---------------------------------------------------------------*/
-.hobby-item img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hobby-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.chess-challenge {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; 
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.chess-challenge span {
-  font-size: 18px;
-  font-weight: 600;
-  color: #444;
-}
-
-.chess-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 12px 22px;
-
-  background: #81B64C;
-  color: #fff !important;     
-  text-decoration: none;
-  border-radius: 8px;
-
-  font-weight: 700;
-
-  transition: all .25s ease;
-}
-
-.chess-btn:hover {
-  background: #6da33f;
-  color: #fff !important;      
-  transform: translateY(-2px);
-}
-
-.chess-btn span {
-  color: #fff !important;      
-  font-weight: 700;
-}
-
-.chess-icon {
-  width: 24px;
-  height: 24px;
-}
-
-/*--------------------------------------------------------------
-# Languages Section
---------------------------------------------------------------*/
-.language-switch {
-  margin-top: 7px;
-  margin-bottom: 15px;
-}
-
-.language-switch a {
-  margin: 3px;
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 13px;
-}
-
-/* ==========================================
-  GRILLE DES COMPÉTENCES
-========================================== */
-
-#skills {
-  --skills-blue: #149ddd;
-  --skills-blue-dark: #087db5;
-  --skills-blue-light: #eaf7fd;
-  --skills-blue-border: #d8edf8;
-}
-
-/* Grille des cartes */
-#skills .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-  gap: 24px;
-  margin-top: 28px;
-}
-
-/* Cartes */
-#skills .skill-card {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  min-width: 0;
-  min-height: 220px;
-  padding: 30px;
-
-  background: #fff;
-  border: 1px solid var(--skills-blue-border);
-  border-radius: 8px;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-/* En-tête des cartes */
-#skills .skill-card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-/* Icônes */
-#skills .skill-icon {
-  display: inline-flex;
-  flex: 0 0 54px;
-  align-items: center;
-  justify-content: center;
-
-  width: 54px;
-  height: 54px;
-
-  border-radius: 50%;
-  background: var(--skills-blue-light);
-  color: var(--skills-blue);
-  font-size: 23px;
-
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-/* Titres des cartes */
-#skills .skill-card h3 {
-  margin: 0;
-  color: var(--heading-color);
-  font-family: var(--heading-font);
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-/* Badges technologiques */
-#skills .skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 8px;
-}
-
-#skills .skill-tags span {
-  display: inline-flex;
-  align-items: center;
-
-  padding: 7px 11px;
-  border-radius: 5px;
-
-  background: var(--skills-blue-light);
-  color: var(--skills-blue-dark);
-
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.3;
-
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-/* Effets au survol */
-@media (hover: hover) and (pointer: fine) {
-  #skills .skill-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--skills-blue);
-    box-shadow: 0 14px 35px rgba(20, 157, 221, 0.16);
-  }
-
-  #skills .skill-card:hover .skill-icon {
-    background: var(--skills-blue);
-    color: #fff;
-    transform: scale(1.06);
-  }
-
-  #skills .skill-card:hover .skill-tags span {
-    background: #d9f0fc;
-    color: var(--skills-blue-dark);
-  }
-}
-
-/* Accessibilité clavier */
-#skills .skill-card:focus-within {
-  outline: 2px solid var(--skills-blue);
-  outline-offset: 3px;
-}
-
-/* Tablettes */
+/* Responsive - skills */
 @media (max-width: 991px) {
   #skills .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1537,7 +1236,19 @@ section,
   }
 }
 
-/* Mobiles */
+@media (max-width: 768px) {
+  #skills .section-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #skills .skills-logo {
+    margin-top: 5px;
+    margin-bottom: -50px;
+    align-self: center;
+  }
+}
+
 @media (max-width: 575px) {
   #skills .skills-grid {
     grid-template-columns: 1fr;
@@ -1553,308 +1264,18 @@ section,
   #skills .skill-card h3 {
     font-size: 19px;
   }
-}
 
-/* Préférences de mouvement */
-@media (prefers-reduced-motion: reduce) {
-  #skills .skill-card,
-  #skills .skill-icon,
-  #skills .skill-tags span {
-    transition: none;
+  .portfolio .portfolio-filters li {
+    font-size: 14px;
+    margin: 0 5px 10px;
   }
 
-  #skills .skill-card:hover {
-    transform: none;
+  .contact .info-wrap {
+    padding: 20px;
   }
 }
 
-
-/* ==========================================
-  CV — TIMELINE MODERNE IP​​ORTFOLIO
-========================================== */
-
-#resume {
-  background: var(--background-color);
-  color: var(--default-color);
-  padding: 60px 0;
-  overflow: hidden;
-}
-
-/* En-tête de section */
-#resume .section-title {
-  padding-bottom: 35px;
-}
-
-#resume .resume-heading {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 20px;
-}
-
-#resume .resume-heading h2 {
-  color: var(--heading-color);
-  font-family: var(--heading-font);
-  font-size: clamp(30px, 4vw, 46px);
-  font-weight: 700;
-  text-transform: none;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-}
-
-#resume .resume-heading h2::after {
-  display: none;
-}
-
-#resume .resume-heading-line {
-  display: block;
-  width: 100%;
-  max-width: 240px;
-  height: 1px;
-  background: color-mix(
-    in srgb,
-    var(--accent-color),
-    transparent 78%
-  );
-}
-
-#resume .section-title > p {
-  max-width: 850px;
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* Titres des colonnes */
-#resume .resume-column-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--heading-color);
-  font-family: var(--heading-font);
-  font-size: 23px;
-  font-weight: 700;
-  margin: 0 0 25px;
-}
-
-#resume .resume-column-title > i {
-  color: var(--accent-color);
-  font-size: 23px;
-}
-
-/* Frise chronologique */
-#resume .resume-timeline {
-  position: relative;
-  padding-left: 26px;
-}
-
-#resume .resume-timeline::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 10px;
-  bottom: 12px;
-  width: 2px;
-  background: var(--accent-color);
-  opacity: 0.75;
-}
-
-/* Carte de chaque formation ou expérience */
-#resume .resume-card {
-  position: relative;
-  background: var(--surface-color);
-  border: 1px solid color-mix(
-    in srgb,
-    var(--accent-color),
-    transparent 82%
-  );
-  border-radius: 8px;
-  padding: 26px 25px;
-  margin-bottom: 28px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.025);
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-}
-
-#resume .resume-card:hover {
-  border-color: color-mix(
-    in srgb,
-    var(--accent-color),
-    transparent 35%
-  );
-  box-shadow: 0 8px 25px rgba(20, 157, 221, 0.09);
-  transform: translateY(-2px);
-}
-
-/* Cercle de la frise */
-#resume .resume-timeline-dot {
-  position: absolute;
-  left: -35px;
-  top: 32px;
-  width: 17px;
-  height: 17px;
-  border: 3px solid var(--accent-color);
-  background: var(--background-color);
-  border-radius: 50%;
-  z-index: 1;
-}
-
-/* Intitulé */
-#resume .resume-card h4 {
-  font-family: var(--heading-font);
-  color: var(--heading-color);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.5;
-  margin: 0 0 12px;
-}
-
-#resume .resume-card-accent {
-  color: var(--accent-color);
-}
-
-/* Dates et localisation */
-#resume .resume-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin-bottom: 17px;
-  color: var(--default-color);
-  opacity: 0.8;
-  font-size: 14px;
-}
-
-#resume .resume-meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
-#resume .resume-meta i {
-  color: var(--accent-color);
-  font-size: 16px;
-}
-
-/* Entreprise ou établissement */
-#resume .resume-organization {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0 0 16px;
-}
-
-/* Description contextuelle */
-#resume .resume-context {
-  line-height: 1.8;
-  margin: 0 0 22px;
-  font-size: 14px;
-}
-
-#resume .resume-context strong {
-  color: var(--heading-color);
-}
-
-/* Sous-titres MISSIONS / ENSEIGNEMENTS */
-#resume .resume-subtitle {
-  font-family: var(--default-font);
-  color: var(--default-color);
-  opacity: 0.7;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin: 0 0 14px;
-}
-
-/* Liste des missions */
-#resume .resume-missions {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 22px;
-}
-
-#resume .resume-missions li {
-  position: relative;
-  padding-left: 24px;
-  margin-bottom: 12px;
-  line-height: 1.75;
-  font-size: 14px;
-}
-
-#resume .resume-missions li::before {
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 9px;
-  width: 8px;
-  height: 8px;
-  background: var(--accent-color);
-  transform: rotate(45deg);
-  border-radius: 1px;
-}
-
-/* Encadré mémoire / réalisation / impact */
-#resume .resume-highlight {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 15px 17px;
-  margin: 20px 0;
-  background: color-mix(
-    in srgb,
-    var(--accent-color),
-    transparent 94%
-  );
-  border-left: 3px solid var(--accent-color);
-  border-radius: 5px;
-}
-
-#resume .resume-highlight > i {
-  flex-shrink: 0;
-  color: var(--accent-color);
-  font-size: 20px;
-  margin-top: 2px;
-}
-
-#resume .resume-highlight p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-#resume .resume-highlight strong {
-  color: var(--heading-color);
-}
-
-/* Badges de technologies */
-#resume .resume-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-#resume .resume-tags span {
-  display: inline-block;
-  padding: 6px 11px;
-  border-radius: 5px;
-  background: color-mix(
-    in srgb,
-    var(--accent-color),
-    transparent 91%
-  );
-  color: var(--accent-color);
-  font-family: var(--default-font);
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-/* Alignement et adaptation */
-#resume .row {
-  align-items: flex-start;
-}
-
+/* Responsive - resume */
 @media (max-width: 991px) {
   #resume {
     padding: 45px 0;
@@ -1867,26 +1288,9 @@ section,
   #resume .resume-card {
     padding: 23px 20px;
   }
-
-  #resume .resume-heading-line {
-    max-width: 140px;
-  }
 }
 
 @media (max-width: 576px) {
-  #resume .resume-heading {
-    gap: 10px;
-  }
-
-  #resume .resume-heading h2 {
-    font-size: 29px;
-    white-space: normal;
-  }
-
-  #resume .resume-heading-line {
-    display: none;
-  }
-
   #resume .resume-column-title {
     font-size: 20px;
   }
@@ -1927,5 +1331,33 @@ section,
 
   #resume .resume-highlight {
     padding: 12px;
+  }
+
+  .certifications .certification-item {
+    flex-direction: column;
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  #skills .skill-card,
+  #skills .skill-icon,
+  #skills .skill-tags span,
+  .certifications .certification-item,
+  .hobby-item img,
+  #resume .resume-card {
+    transition: none;
+  }
+
+  #skills .skill-card:hover,
+  .certifications .certification-item:hover,
+  .hobby-item img:hover,
+  #resume .resume-card:hover {
+    transform: none;
   }
 }
