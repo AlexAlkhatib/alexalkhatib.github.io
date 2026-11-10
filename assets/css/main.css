@@ -773,7 +773,8 @@ section,
 
 #resume .resume-timeline-dot {
   position: absolute;
-  left: -35px;
+  /* Centrée sur le trait de la timeline (left: 7px + 2px de large) */
+  left: -27.5px;
   top: 32px;
   width: 17px;
   height: 17px;
@@ -1010,6 +1011,7 @@ section,
 # 4.6 Certifications
 --------------------------------------------------------------*/
 .certifications .certification-item {
+  position: relative;
   gap: 20px;
   height: 100%;
   padding: 22px;
@@ -1043,10 +1045,25 @@ section,
 
 .certifications .certification-item .title a {
   color: var(--heading-color);
+  transition: color 0.3s ease;
 }
 
-.certifications .certification-item .title a:hover {
+/* Rend toute la carte cliquable, pas seulement le titre */
+.certifications .certification-item .title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+}
+
+.certifications .certification-item .title a:hover,
+.certifications .certification-item:hover .title a {
   color: var(--accent-color);
+}
+
+.certifications .certification-item .title a:focus-visible::after {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .certifications .certification-item .description {
@@ -1304,7 +1321,7 @@ section,
   }
 
   #resume .resume-timeline-dot {
-    left: -24px;
+    left: -24.5px;
     width: 15px;
     height: 15px;
   }
